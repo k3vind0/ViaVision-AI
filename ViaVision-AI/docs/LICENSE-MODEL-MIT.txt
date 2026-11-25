@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Nota de trazabilidad (Grupo 03 - VíaVision AI):
+Nota de trazabilidad (Grupo 11 - VíaVision AI):
 Este archivo conserva literalmente el texto de licencia MIT publicado en el repositorio externo
 de origen (Rishabh-bgp/machine-learning-part-3, commit 31406345). En el texto original del autor
 se mencionaban otros datasets de ese repositorio (p. ej. UCI Heart Disease e insurance data),

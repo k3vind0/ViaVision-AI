@@ -1,4 +1,4 @@
-"""Aplicación principal Streamlit de VíaVision AI."""
+"""Aplicación principal Streamlit de VíaVision AI (Grupo 11 · UNT)."""
 import hashlib
 from uuid import uuid4
 
@@ -9,10 +9,13 @@ import streamlit as st
 from src.agents.flow import graph
 from src.config import ROOT, get_logger
 from src.ml.priority import VIA, calcular_prioridad
-from src.ui.components import (
+from src.ui import (
+    inject_styles,
     render_approval_and_download,
     render_chat_panel,
     render_evidence_and_trace,
+    render_hero,
+    render_kpi_strip,
     render_priority_details,
     render_sidebar,
 )
@@ -21,16 +24,16 @@ from src.vision.detector import draw_boxes
 load_dotenv()
 logger = get_logger(__name__)
 
-st.set_page_config(page_title="VíaVision AI", page_icon="🛣️", layout="wide")
-st.markdown("**GRUPO 03 · SISTEMAS INTELIGENTES · UNT**")
-st.title("VíaVision AI")
-st.caption("Detecta daños visibles, estima la prioridad y prepara el expediente de inspección.")
+st.set_page_config(page_title="VíaVision AI · Grupo 11", page_icon="🛣️", layout="wide")
+inject_styles()
+render_hero()
 
 demo, tramo, district, road, location, model_ready = render_sidebar()
 
 if demo:
     st.info(
-        "Demostración. El tramo y la prioridad son simulados. La foto incluida procede de un conjunto externo a Trujillo."
+        "Modo Demostración activo. El tramo y la prioridad provienen de entrenamiento sintético; "
+        "la imagen incluida procede de un conjunto externo a Trujillo."
     )
 
 left, right = st.columns(2, gap="large")
@@ -84,7 +87,7 @@ with right:
     except ValueError as exc:
         st.warning(str(exc))
 
-st.subheader("Consulta técnica y expediente")
+st.subheader("Consulta técnica y ejecución integrada")
 question = st.text_input(
     "Pregunta sobre la inspección",
     "¿Qué debo medir en un bache?",
@@ -140,18 +143,45 @@ if st.session_state.get("signature") == signature:
     for warning in result.get("warnings", []):
         st.warning(warning)
 
-    vision = result["vision"]
-    if vision["estado"].startswith("no evaluable"):
-        st.warning(vision["estado"])
-    else:
-        st.image(
-            draw_boxes(raw, vision["danos"]),
-            caption=f"{vision['estado']} · incertidumbre visual: {vision.get('incertidumbre_visual', 'media')}",
-            width="stretch",
-        )
-        if vision["danos"]:
-            st.dataframe(vision["danos"], hide_index=True)
+    render_kpi_strip(result)
 
-    render_chat_panel(result, location)
-    render_evidence_and_trace(result)
+    tab_vis, tab_ml, tab_rag = st.tabs(
+        [
+            "Escenario 1 · Visión (YOLO11n)",
+            "Escenario 2 · Prioridad y Factores (ML)",
+            "Escenario 3 · Evidencia RAG y Traza LangGraph",
+        ]
+    )
+
+    with tab_vis:
+        vision = result["vision"]
+        if vision["estado"].startswith("no evaluable"):
+            st.warning(vision["estado"])
+        else:
+            st.image(
+                draw_boxes(raw, vision["danos"]),
+                caption=f"Estado: {vision['estado']} · Incertidumbre visual: {vision.get('incertidumbre_visual', 'media')}",
+                width="stretch",
+            )
+            if vision["danos"]:
+                st.dataframe(vision["danos"], hide_index=True)
+            st.caption(
+                "Nota técnica: YOLO11n ubica deterioros superficiales en píxeles; "
+                "la profundidad física debe verificarse en campo."
+            )
+
+    with tab_ml:
+        prio = result.get("priority") or {}
+        if prio:
+            st.markdown(
+                f"**Prioridad calculada:** `{prio['clase'].capitalize()}` (**{prio['puntaje']}/100**) · "
+                f"Origen: `{prio.get('origen', 'N/D')}`"
+            )
+            render_priority_details(prio)
+            st.json(prio.get("variables", {}), expanded=False)
+
+    with tab_rag:
+        render_evidence_and_trace(result)
+
     render_approval_and_download(result, lambda: run(True))
+    render_chat_panel(result, location)

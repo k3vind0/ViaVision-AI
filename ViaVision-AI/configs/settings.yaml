@@ -2,7 +2,7 @@ project:
   name: "VíaVision AI"
   course: "Sistemas Inteligentes — VI ciclo"
   university: "Universidad Nacional de Trujillo"
-  group: "Grupo 03"
+  group: "Grupo 11"
   semester: "2026-II"
   repository: "https://github.com/k3vind0/ViaVision-AI"
   scope:
@@ -10,11 +10,11 @@ project:
     provincia: "Trujillo"
   team:
     - name: "Kevin Alexis Alva Neciosup"
-      role: "Líder Técnico / Pipeline ML y Visión"
+      role: "Ingeniería de Datos, ML y Visión Computacional"
     - name: "Aguilar Meza Yolver Yonel"
-      role: "Arquitectura RAG y Agente LangGraph"
+      role: "LLM, LangChain y Pipeline RAG"
     - name: "Chacon Garcia Anthony Alexander"
-      role: "Interfaz Streamlit, Pruebas y Documentación"
+      role: "Orquestación LangGraph, UI Streamlit y QA"
 
 vision:
   model_path: "models/road_damage.onnx"

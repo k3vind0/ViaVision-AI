@@ -1,12 +1,12 @@
 # VíaVision AI
 
-Prototipo de inspección vial del **Grupo 03** (Sistemas Inteligentes — VI ciclo, Universidad Nacional de Trujillo, 2026-II). Integra detección visual de deterioros, estimación de prioridad tabular, recuperación documental normativa y aprobación humana mediante LangGraph en un expediente JSON validado con Pydantic.
+Prototipo de inspección vial del **Grupo 11** (Sistemas Inteligentes — VI ciclo, Universidad Nacional de Trujillo, 2026-II). Integra detección visual de deterioros, estimación de prioridad tabular, recuperación documental normativa y aprobación humana mediante LangGraph en un expediente JSON validado con Pydantic.
 
 - **Repositorio oficial:** https://github.com/k3vind0/ViaVision-AI
 - **Integrantes y roles:**
-  - **Kevin Alexis Alva Neciosup** — Líder Técnico / Pipeline ML y Visión
-  - **Aguilar Meza Yolver Yonel** — Arquitectura RAG y Agente LangGraph
-  - **Chacon Garcia Anthony Alexander** — Interfaz Streamlit, Pruebas y Documentación
+  - **Kevin Alexis Alva Neciosup** — Ingeniería de Datos, ML y Visión Computacional
+  - **Aguilar Meza Yolver Yonel** — LLM, LangChain y Pipeline RAG
+  - **Chacon Garcia Anthony Alexander** — Orquestación LangGraph, UI Streamlit y QA
 
 ## Estructura del repositorio
 
