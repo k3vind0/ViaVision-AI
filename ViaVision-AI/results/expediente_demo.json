@@ -1,0 +1,76 @@
+{
+  "tramo": "PILOTO-01",
+  "ubicacion": {
+    "departamento": "La Libertad",
+    "provincia": "Trujillo",
+    "distrito": "Trujillo",
+    "via_o_sector": "Tramo simulado",
+    "coordenadas": null,
+    "origen": "simulado"
+  },
+  "fecha_utc": "2026-11-23T18:44:09.473602+00:00",
+  "alcance": "demostración sintética",
+  "vision": {
+    "estado": "evaluada",
+    "danos": [
+      {
+        "clase": "Bache",
+        "caja": [
+          162,
+          139,
+          281,
+          234
+        ],
+        "confianza": 0.6181414127349854
+      },
+      {
+        "clase": "Bache",
+        "caja": [
+          341,
+          63,
+          421,
+          97
+        ],
+        "confianza": 0.48144620656967163
+      }
+    ]
+  },
+  "prioridad": {
+    "clase": "media",
+    "puntaje": 53.9,
+    "probabilidades": {
+      "alta": 0.1852,
+      "baja": 0.1071,
+      "media": 0.7078
+    },
+    "origen": "entrenamiento sintético",
+    "variables": {
+      "trafico_diario": 6500,
+      "antiguedad_anios": 14,
+      "reparaciones_24m": 3,
+      "tipo_via": "colectora",
+      "precipitacion_mm_30d": 25,
+      "severidad_inspeccionada": 2
+    }
+  },
+  "evidencia": [
+    {
+      "id": "FHWA-B8",
+      "tema": "bache agujero hoyo profundidad área medir severidad reparación inspección",
+      "fuente": "FHWA-HRT-13-092, capítulo 1, B.8",
+      "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
+      "texto": "La inspección registra el número de baches y el área afectada por nivel de severidad. La profundidad se mide desde la superficie hasta el punto más bajo. Los rangos de profundidad del manual son menor que 25 mm, de 25 a 50 mm y mayor que 50 mm.",
+      "similaridad": 0.277
+    },
+    {
+      "id": "MTC-410",
+      "tema": "reparación bache bacheo parchado superficial asfalto pavimento flexible profundidad",
+      "fuente": "MTC, conservación vial, §410.1, p. 299",
+      "url": "https://portal.mtc.gob.pe/transportes/caminos/normas_carreteras/MTC%20NORMAS/ARCH_PDF/MAN_9%20MCV-2014_2016.pdf",
+      "texto": "El parchado superficial en calzada aplica cuando el deterioro del pavimento flexible afecta la capa de rodadura y las capas inferiores están en buenas condiciones. La sección remite los baches de mayor profundidad al parchado profundo de la sección 415.",
+      "similaridad": 0.121
+    }
+  ],
+  "revision_humana": "aprobado para exportar expediente preliminar",
+  "nota": "Documento de inspección preliminar."
+}

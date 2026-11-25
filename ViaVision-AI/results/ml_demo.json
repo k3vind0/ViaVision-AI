@@ -1,0 +1,86 @@
+{
+  "origen": "sint\u00e9tico",
+  "modelo": "logistica",
+  "clases": [
+    "baja",
+    "media",
+    "alta"
+  ],
+  "train": 270,
+  "test": 90,
+  "resultados": {
+    "baseline": {
+      "f1_validacion": 0.1942038870752824,
+      "parametros": {},
+      "f1_test": 0.21212121212121213,
+      "mae_ordinal": 0.5333333333333333,
+      "matriz": [
+        [
+          0,
+          27,
+          0
+        ],
+        [
+          0,
+          42,
+          0
+        ],
+        [
+          0,
+          21,
+          0
+        ]
+      ]
+    },
+    "logistica": {
+      "f1_validacion": 0.7862520472059453,
+      "parametros": {
+        "logisticregression__C": 0.2
+      },
+      "f1_test": 0.7661705535372475,
+      "mae_ordinal": 0.2222222222222222,
+      "matriz": [
+        [
+          22,
+          5,
+          0
+        ],
+        [
+          4,
+          36,
+          2
+        ],
+        [
+          0,
+          9,
+          12
+        ]
+      ]
+    },
+    "bosque": {
+      "f1_validacion": 0.7445454179412918,
+      "parametros": {
+        "randomforestclassifier__max_depth": 8
+      },
+      "f1_test": 0.745679012345679,
+      "mae_ordinal": 0.24444444444444444,
+      "matriz": [
+        [
+          22,
+          5,
+          0
+        ],
+        [
+          5,
+          34,
+          3
+        ],
+        [
+          0,
+          9,
+          12
+        ]
+      ]
+    }
+  }
+}

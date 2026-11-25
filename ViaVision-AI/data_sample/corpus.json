@@ -1,0 +1,44 @@
+[
+  {
+    "id": "FHWA-B8",
+    "tema": "bache agujero hoyo profundidad área medir severidad reparación inspección",
+    "fuente": "FHWA-HRT-13-092, capítulo 1, B.8",
+    "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
+    "texto": "La inspección registra el número de baches y el área afectada por nivel de severidad. La profundidad se mide desde la superficie hasta el punto más bajo. Los rangos de profundidad del manual son menor que 25 mm, de 25 a 50 mm y mayor que 50 mm."
+  },
+  {
+    "id": "FHWA-A4",
+    "tema": "grieta fisura longitudinal carril ancho medir inspección",
+    "fuente": "FHWA-HRT-13-092, capítulo 1, A.4",
+    "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
+    "texto": "Para fisuras longitudinales en pavimento asfáltico se registra la longitud por nivel de severidad y se distingue si están en la huella de rodadura."
+  },
+  {
+    "id": "FHWA-A6",
+    "tema": "grieta fisura transversal longitud medir inspección",
+    "fuente": "FHWA-HRT-13-092, capítulo 1, A.6",
+    "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
+    "texto": "Para grietas transversales se registran la cantidad y longitud en metros por nivel de severidad."
+  },
+  {
+    "id": "FHWA-A1",
+    "tema": "grieta fisura piel cocodrilo fatiga medir malla inspección",
+    "fuente": "FHWA-HRT-13-092, capítulo 1, A.1",
+    "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
+    "texto": "Para fisuración por fatiga se registra el área afectada en metros cuadrados para cada nivel de severidad."
+  },
+  {
+    "id": "MTC-410",
+    "tema": "reparación bache bacheo parchado superficial asfalto pavimento flexible profundidad",
+    "fuente": "MTC, conservación vial, §410.1, p. 299",
+    "url": "https://portal.mtc.gob.pe/transportes/caminos/normas_carreteras/MTC%20NORMAS/ARCH_PDF/MAN_9%20MCV-2014_2016.pdf",
+    "texto": "El parchado superficial en calzada aplica cuando el deterioro del pavimento flexible afecta la capa de rodadura y las capas inferiores están en buenas condiciones. La sección remite los baches de mayor profundidad al parchado profundo de la sección 415."
+  },
+  {
+    "id": "MTC-401",
+    "tema": "sellado grietas fisuras reparación flexible calzada",
+    "fuente": "MTC, conservación vial, §§401 y 410.1, pp. 287 y 299",
+    "url": "https://portal.mtc.gob.pe/transportes/caminos/normas_carreteras/MTC%20NORMAS/ARCH_PDF/MAN_9%20MCV-2014_2016.pdf",
+    "texto": "Para pavimento flexible, el manual contempla sellado en calzada. La sección 410 menciona el sellado cuando el agrietamiento de baja severidad presenta fisuras sin interconexión. La selección de intervención requiere revisión en campo."
+  }
+]

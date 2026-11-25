@@ -1,0 +1,10 @@
+streamlit==1.50.0
+langgraph==1.0.5
+langchain-openai==1.1.7
+scikit-learn==1.8.0
+pandas==2.2.3
+numpy==2.3.5
+Pillow==11.3.0
+python-dotenv==1.2.2
+onnxruntime==1.32.0
+PyYAML==6.0.3
