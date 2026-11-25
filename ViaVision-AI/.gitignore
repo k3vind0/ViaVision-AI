@@ -1,5 +1,14 @@
 .env
 .venv/
 __pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+logs/
+*.log
 data_private/
 runs/
+models/validado.joblib
+results/*validado*
+.DS_Store
+Thumbs.db

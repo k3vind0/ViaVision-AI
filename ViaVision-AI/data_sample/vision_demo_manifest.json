@@ -1,0 +1,24 @@
+{
+  "alcance": "Verificación de protocolo de evaluación visual sobre las 2 imágenes incluidas en data_sample (no constituye evaluación de campo independiente; tramo-ejemplo.jpg proviene del repositorio del modelo externo y fhwa-bache.jpg ilustra un fallo de clasificación/localización).",
+  "muestras": [
+    {
+      "imagen": "tramo-ejemplo.jpg",
+      "calle": "Muestra externa sample4 (Arcioni/Aryan)",
+      "recorrido": "demo-externo",
+      "cajas": [
+        {"clase": "Bache", "caja": [162, 139, 281, 234]},
+        {"clase": "Bache", "caja": [341, 63, 421, 97]}
+      ],
+      "nota": "Dos baches visibles con agua superficial; origen compartido con el repositorio del modelo."
+    },
+    {
+      "imagen": "fhwa-bache.jpg",
+      "calle": "FHWA-HRT-13-092 Fig. 28",
+      "recorrido": "fhwa-control",
+      "cajas": [
+        {"clase": "Bache", "caja": [102, 60, 178, 86]}
+      ],
+      "nota": "Caso de error documentado: bache pequeño en toma inclinada clasificado erróneamente como Grieta (29%) con caja sobredimensionada."
+    }
+  ]
+}

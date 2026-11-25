@@ -1,12 +1,10 @@
 # Estado de entrega frente a la guía
 
-| Criterio | Evidencia disponible | Pendiente para validar la entrega final |
+| Criterio | Evidencia disponible (Fase 1 verificada) | Pendiente (Fase 2 / trabajo de campo futuro) |
 |---|---|---|
-| Streamlit y tres escenarios | app.py, detector y modelo local, casos reproducibles en tests y results | Captura continua de la interfaz para el video de feria |
-| Machine Learning | Baseline, dos candidatos, partición por tramo, ajuste en entrenamiento, macro-F1, matriz y MAE ordinal | Sustituir fichas sintéticas por registros con etiqueta de prioridad de inspección |
-| Visión | YOLO11n externo en ONNX, predicciones observadas y evaluador de cajas | Adaptación propia y evaluación independiente por calle/recorrido con mAP, recall y falsas alarmas |
-| RAG y LLM | Seis fichas verificables, TF-IDF, recuperación local, integración LangChain opcional | Configurar servicio, medir fidelidad y citas con consultas nuevas, ampliar corpus |
-| LangGraph | Cuatro funciones de negocio y nodo de revisión con interrupción y reanudación probadas | Documentar resultados del piloto con datos reales |
-| Material académico | Informe editable, manuales, diapositivas, póster y video de evidencia de 3:15 | Incorporar autores y aportes reales del grupo. Añadir QR al publicar el repositorio |
-
-La aplicación y el expediente incorporan Trujillo como provincia de estudio. La foto de ejemplo es externa y el expediente de demostración marca la ubicación como simulada. La cobertura efectiva del piloto dependerá de los tramos inspeccionados.
+| Estructura, config y logging | `src/{data,ml,vision,rag,agents,ui}/`, `configs/settings.yaml`, `src/schemas.py` (Pydantic v2), `logs/viavision.log`, `requirements.txt` compatible Python 3.12–3.14 | Despliegue en servidor municipal si se requiere |
+| Machine Learning | Generador coherente por tramo, `regla_baseline` + `dummy_frecuente` + 3 candidatos (`LogisticRegression`, `RandomForest`, `GradientBoosting`), métricas train/val/test, subgrupos y 3 figuras PNG | Sustituir fichas sintéticas por registros municipales con `prioridad_validada` real |
+| Visión | YOLO11n ONNX, `evaluate_vision.py`, manifiesto de muestra `vision_demo_manifest.json`, análisis cuantitativo/visual de `fhwa-bache.jpg` (`fig_vision_fhwa_analisis.png`) | Reunir y anotar dataset propio por calle/recorrido en Trujillo y reentrenar/ajustar detector |
+| RAG y LLM | 13 fichas curadas (FHWA/MTC), chunking, índice híbrido TF-IDF + SVD denso, evaluación de 24 consultas (Sin-RAG vs Con-RAG, 100 % Hit@3 y bloqueo adversarial), Pydantic `with_structured_output` | Pruebas de fidelidad con clave OpenAI activa en producción |
+| LangGraph y Streamlit | Grafo de 7 nodos (`verificar_metadatos` → `prioridad` → `vision` → `evidencia` → `incertidumbre` → `revision` → `registro`), chatbot multi-turno, barras de probabilidad, 9/9 `pytest`, 7 capturas reales en `docs/capturas/` | — |
+| Material académico (Fase 2) | `notebooks/Experimentacion.ipynb` ejecutado con salidas; `README.md`, `Bitacora.md`, `Diccionario.md`, `Fichas-modelos.md`, `Fuentes.md` actualizados | Actualizar `Informe_ViaVision_AI.docx`, `Manuales_ViaVision_AI.docx`, `Poster_ViaVision_AI.pdf`, `Sustentacion_ViaVision_AI.pptx` y video continuo en vivo |

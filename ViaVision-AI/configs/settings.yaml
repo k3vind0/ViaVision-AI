@@ -1,0 +1,68 @@
+project:
+  name: "VíaVision AI"
+  course: "Sistemas Inteligentes — VI ciclo"
+  university: "Universidad Nacional de Trujillo"
+  group: "Grupo 03"
+  semester: "2026-II"
+  repository: "https://github.com/k3vind0/ViaVision-AI"
+  scope:
+    departamento: "La Libertad"
+    provincia: "Trujillo"
+  team:
+    - name: "Kevin Alexis Alva Neciosup"
+      role: "Líder Técnico / Pipeline ML y Visión"
+    - name: "Aguilar Meza Yolver Yonel"
+      role: "Arquitectura RAG y Agente LangGraph"
+    - name: "Chacon Garcia Anthony Alexander"
+      role: "Interfaz Streamlit, Pruebas y Documentación"
+
+vision:
+  model_path: "models/road_damage.onnx"
+  input_size: 640
+  confidence_threshold: 0.25
+  iou_threshold: 0.50
+  max_detections: 50
+  excluded_classes:
+    - "Tapa de registro"
+  uncertainty_confidence_threshold: 0.45
+
+ml:
+  seed: 42
+  test_size: 0.25
+  cv_splits: 4
+  uncertainty_margin_threshold: 0.15
+  features:
+    - "trafico_diario"
+    - "antiguedad_anios"
+    - "reparaciones_24m"
+    - "tipo_via"
+    - "precipitacion_mm_30d"
+    - "severidad_inspeccionada"
+  classes:
+    - "baja"
+    - "media"
+    - "alta"
+  road_types:
+    - "local"
+    - "colectora"
+    - "arterial"
+  ranges:
+    trafico_diario: [0, 100000]
+    antiguedad_anios: [0, 100]
+    reparaciones_24m: [0, 100]
+    precipitacion_mm_30d: [0, 5000]
+    severidad_inspeccionada: [0, 3]
+
+rag:
+  corpus_path: "data_sample/corpus.json"
+  top_k: 3
+  min_similarity: 0.08
+  tfidf_weight: 0.45
+  dense_weight: 0.55
+  embedding_dim: 12
+  damage_boost: 0.08
+  llm_timeout_seconds: 12
+
+logging:
+  level: "INFO"
+  file: "logs/viavision.log"

@@ -20,7 +20,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Note: the MIT licence covers the code and documentation written for this
-repository. The bundled UCI Heart Disease data remain under CC BY 4.0, and the
-insurance data (downloaded, not bundled) under their source's terms
-(see docs/data.md).
+Nota de trazabilidad (Grupo 03 - VíaVision AI):
+Este archivo conserva literalmente el texto de licencia MIT publicado en el repositorio externo
+de origen (Rishabh-bgp/machine-learning-part-3, commit 31406345). En el texto original del autor
+se mencionaban otros datasets de ese repositorio (p. ej. UCI Heart Disease e insurance data),
+los cuales NO forman parte ni están incluidos en VíaVision AI.

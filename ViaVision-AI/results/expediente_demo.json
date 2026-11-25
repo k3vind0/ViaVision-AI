@@ -8,8 +8,30 @@
     "coordenadas": null,
     "origen": "simulado"
   },
-  "fecha_utc": "2026-11-23T18:44:09.473602+00:00",
+  "fecha_utc": "2026-11-25T04:15:48.208551+00:00",
   "alcance": "demostración sintética",
+  "danos_detectados": [
+    {
+      "clase": "Bache",
+      "caja": [
+        162,
+        139,
+        281,
+        234
+      ],
+      "confianza": 0.6181411147117615
+    },
+    {
+      "clase": "Bache",
+      "caja": [
+        341,
+        63,
+        421,
+        97
+      ],
+      "confianza": 0.48144668340682983
+    }
+  ],
   "vision": {
     "estado": "evaluada",
     "danos": [
@@ -21,7 +43,7 @@
           281,
           234
         ],
-        "confianza": 0.6181414127349854
+        "confianza": 0.6181411147117615
       },
       {
         "clase": "Bache",
@@ -31,18 +53,30 @@
           421,
           97
         ],
-        "confianza": 0.48144620656967163
+        "confianza": 0.48144668340682983
       }
-    ]
+    ],
+    "umbral_confianza": 0.25,
+    "incertidumbre_visual": "baja"
   },
+  "puntaje_prioridad": 60.4,
   "prioridad": {
     "clase": "media",
-    "puntaje": 53.9,
+    "puntaje": 60.4,
     "probabilidades": {
-      "alta": 0.1852,
-      "baja": 0.1071,
-      "media": 0.7078
+      "alta": 0.2107,
+      "baja": 0.0019,
+      "media": 0.7875
     },
+    "margen_probabilidad": 0.5768,
+    "entropia_normalizada": 0.4808,
+    "nivel_incertidumbre": "baja",
+    "factores": [
+      "Severidad inspeccionada nivel 2/3",
+      "Flujo vehicular elevado (6500 veh/día)",
+      "Pavimento antiguo (14 años)",
+      "Historial frecuente de parches (3 en 24 meses)"
+    ],
     "origen": "entrenamiento sintético",
     "variables": {
       "trafico_diario": 6500,
@@ -53,24 +87,103 @@
       "severidad_inspeccionada": 2
     }
   },
-  "evidencia": [
+  "factores": [
+    "Severidad inspeccionada nivel 2/3",
+    "Flujo vehicular elevado (6500 veh/día)",
+    "Pavimento antiguo (14 años)",
+    "Historial frecuente de parches (3 en 24 meses)"
+  ],
+  "evidencia_normativa": [
     {
       "id": "FHWA-B8",
+      "documento": "FHWA-HRT-13-092",
+      "seccion": "Capítulo 1, B.8",
+      "pagina": "cap. 1",
       "tema": "bache agujero hoyo profundidad área medir severidad reparación inspección",
       "fuente": "FHWA-HRT-13-092, capítulo 1, B.8",
       "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
       "texto": "La inspección registra el número de baches y el área afectada por nivel de severidad. La profundidad se mide desde la superficie hasta el punto más bajo. Los rangos de profundidad del manual son menor que 25 mm, de 25 a 50 mm y mayor que 50 mm.",
-      "similaridad": 0.277
+      "similaridad": 0.684
     },
     {
       "id": "MTC-410",
+      "documento": "MTC MCV-2014/2016",
+      "seccion": "§410.1",
+      "pagina": "p. 299",
       "tema": "reparación bache bacheo parchado superficial asfalto pavimento flexible profundidad",
       "fuente": "MTC, conservación vial, §410.1, p. 299",
       "url": "https://portal.mtc.gob.pe/transportes/caminos/normas_carreteras/MTC%20NORMAS/ARCH_PDF/MAN_9%20MCV-2014_2016.pdf",
       "texto": "El parchado superficial en calzada aplica cuando el deterioro del pavimento flexible afecta la capa de rodadura y las capas inferiores están en buenas condiciones. La sección remite los baches de mayor profundidad al parchado profundo de la sección 415.",
-      "similaridad": 0.121
+      "similaridad": 0.48
+    },
+    {
+      "id": "MTC-415",
+      "documento": "MTC MCV-2014/2016",
+      "seccion": "§415",
+      "pagina": "cap. 4",
+      "tema": "parchado profundo base subbase bache profundo pavimento flexible reparación",
+      "fuente": "MTC, conservación vial, §415 (referenciado desde §410.1)",
+      "url": "https://portal.mtc.gob.pe/transportes/caminos/normas_carreteras/MTC%20NORMAS/ARCH_PDF/MAN_9%20MCV-2014_2016.pdf",
+      "texto": "Cuando el deterioro o bache compromete la base o capas inferiores del pavimento flexible más allá de la rodadura, la sección 410.1 remite al parchado profundo de la sección 415 previa verificación de espesores y soporte en campo.",
+      "similaridad": 0.371
     }
   ],
+  "evidencia": [
+    {
+      "id": "FHWA-B8",
+      "documento": "FHWA-HRT-13-092",
+      "seccion": "Capítulo 1, B.8",
+      "pagina": "cap. 1",
+      "tema": "bache agujero hoyo profundidad área medir severidad reparación inspección",
+      "fuente": "FHWA-HRT-13-092, capítulo 1, B.8",
+      "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
+      "texto": "La inspección registra el número de baches y el área afectada por nivel de severidad. La profundidad se mide desde la superficie hasta el punto más bajo. Los rangos de profundidad del manual son menor que 25 mm, de 25 a 50 mm y mayor que 50 mm.",
+      "similaridad": 0.684
+    },
+    {
+      "id": "MTC-410",
+      "documento": "MTC MCV-2014/2016",
+      "seccion": "§410.1",
+      "pagina": "p. 299",
+      "tema": "reparación bache bacheo parchado superficial asfalto pavimento flexible profundidad",
+      "fuente": "MTC, conservación vial, §410.1, p. 299",
+      "url": "https://portal.mtc.gob.pe/transportes/caminos/normas_carreteras/MTC%20NORMAS/ARCH_PDF/MAN_9%20MCV-2014_2016.pdf",
+      "texto": "El parchado superficial en calzada aplica cuando el deterioro del pavimento flexible afecta la capa de rodadura y las capas inferiores están en buenas condiciones. La sección remite los baches de mayor profundidad al parchado profundo de la sección 415.",
+      "similaridad": 0.48
+    },
+    {
+      "id": "MTC-415",
+      "documento": "MTC MCV-2014/2016",
+      "seccion": "§415",
+      "pagina": "cap. 4",
+      "tema": "parchado profundo base subbase bache profundo pavimento flexible reparación",
+      "fuente": "MTC, conservación vial, §415 (referenciado desde §410.1)",
+      "url": "https://portal.mtc.gob.pe/transportes/caminos/normas_carreteras/MTC%20NORMAS/ARCH_PDF/MAN_9%20MCV-2014_2016.pdf",
+      "texto": "Cuando el deterioro o bache compromete la base o capas inferiores del pavimento flexible más allá de la rodadura, la sección 410.1 remite al parchado profundo de la sección 415 previa verificación de espesores y soporte en campo.",
+      "similaridad": 0.371
+    }
+  ],
+  "nivel_incertidumbre": "baja",
+  "informe_preliminar": "[FHWA-B8] La inspección registra el número de baches y el área afectada por nivel de severidad. La profundidad se mide desde la superficie hasta el punto más bajo. Los rangos de profundidad del manual son menor que 25 mm, de 25 a 50 mm y mayor que 50 mm. [MTC-410] El parchado superficial en calzada aplica cuando el deterioro del pavimento flexible afecta la capa de rodadura y las capas inferiores están en buenas condiciones. La sección remite los baches de mayor profundidad al parchado profundo de la sección 415. [MTC-415] Cuando el deterioro o bache compromete la base o capas inferiores del pavimento flexible más allá de la rodadura, la sección 410.1 remite al parchado profundo de la sección 415 previa verificación de espesores y soporte en campo.\n\nContexto del tramo: Visión: 2 Bache (incertidumbre visual baja). Prioridad: media (60.4/100, incertidumbre baja).\n\nVerificaciones pendientes: Confirmar profundidad o ancho físico en campo (una foto RGB no mide profundidad). Registrar coordenadas geográficas (latitud/longitud) del tramo para trazabilidad municipal.\n\nLa prioridad calculada no sustituye ensayos estructurales ni decisión de un ingeniero vial; no inferir profundidad de grietas sólo desde RGB.",
+  "modo_respuesta": "recuperación local sin LLM",
   "revision_humana": "aprobado para exportar expediente preliminar",
-  "nota": "Documento de inspección preliminar."
+  "traza": [
+    "verificar_metadatos",
+    "calcular_prioridad",
+    "detectar_danos",
+    "recuperar_normativa",
+    "evaluar_incertidumbre",
+    "revision_humana",
+    "registrar_inspeccion_preliminar"
+  ],
+  "latencias_ms": {
+    "verificar_metadatos": 0.0,
+    "calcular_prioridad": 32.3,
+    "detectar_danos": 210.98,
+    "recuperar_normativa": 25.45,
+    "evaluar_incertidumbre": 0.0,
+    "revision_humana": 0.01,
+    "registrar_inspeccion_preliminar": 0.0
+  },
+  "nota": "Documento de inspección preliminar. No sustituye ensayos estructurales."
 }

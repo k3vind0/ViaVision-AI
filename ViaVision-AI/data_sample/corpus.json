@@ -1,6 +1,9 @@
 [
   {
     "id": "FHWA-B8",
+    "documento": "FHWA-HRT-13-092",
+    "seccion": "Capítulo 1, B.8",
+    "pagina": "cap. 1",
     "tema": "bache agujero hoyo profundidad área medir severidad reparación inspección",
     "fuente": "FHWA-HRT-13-092, capítulo 1, B.8",
     "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
@@ -8,6 +11,9 @@
   },
   {
     "id": "FHWA-A4",
+    "documento": "FHWA-HRT-13-092",
+    "seccion": "Capítulo 1, A.4",
+    "pagina": "cap. 1",
     "tema": "grieta fisura longitudinal carril ancho medir inspección",
     "fuente": "FHWA-HRT-13-092, capítulo 1, A.4",
     "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
@@ -15,6 +21,9 @@
   },
   {
     "id": "FHWA-A6",
+    "documento": "FHWA-HRT-13-092",
+    "seccion": "Capítulo 1, A.6",
+    "pagina": "cap. 1",
     "tema": "grieta fisura transversal longitud medir inspección",
     "fuente": "FHWA-HRT-13-092, capítulo 1, A.6",
     "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
@@ -22,23 +31,102 @@
   },
   {
     "id": "FHWA-A1",
+    "documento": "FHWA-HRT-13-092",
+    "seccion": "Capítulo 1, A.1",
+    "pagina": "cap. 1",
     "tema": "grieta fisura piel cocodrilo fatiga medir malla inspección",
     "fuente": "FHWA-HRT-13-092, capítulo 1, A.1",
     "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
     "texto": "Para fisuración por fatiga se registra el área afectada en metros cuadrados para cada nivel de severidad."
   },
   {
+    "id": "FHWA-A2",
+    "documento": "FHWA-HRT-13-092",
+    "seccion": "Capítulo 1, A.2",
+    "pagina": "cap. 1",
+    "tema": "agrietamiento en bloque fisuras poligonales área medir inspección",
+    "fuente": "FHWA-HRT-13-092, capítulo 1, A.2",
+    "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
+    "texto": "El agrietamiento en bloque corresponde a fisuras interconectadas que dividen el pavimento en piezas aproximadamente rectangulares; se mide el área afectada en metros cuadrados según nivel de severidad."
+  },
+  {
+    "id": "FHWA-A3",
+    "documento": "FHWA-HRT-13-092",
+    "seccion": "Capítulo 1, A.3",
+    "pagina": "cap. 1",
+    "tema": "grieta de borde berma longitud medir pavimento asfáltico",
+    "fuente": "FHWA-HRT-13-092, capítulo 1, A.3",
+    "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
+    "texto": "Las grietas de borde se presentan cerca del límite exterior de la calzada sin berma pavimentada y se cuantifican por longitud en metros lineales y severidad."
+  },
+  {
+    "id": "FHWA-B9",
+    "documento": "FHWA-HRT-13-092",
+    "seccion": "Capítulo 1, B.9",
+    "pagina": "cap. 1",
+    "tema": "ahuellamiento deformación rodera perfil transversal medir profundidad",
+    "fuente": "FHWA-HRT-13-092, capítulo 1, B.9",
+    "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
+    "texto": "El ahuellamiento es una depresión longitudinal en la huella de rodadura; requiere medición física del perfil transversal con regla o perfilómetro y no puede cuantificarse sólo con una fotografía RGB."
+  },
+  {
+    "id": "FHWA-GEN",
+    "documento": "FHWA-HRT-13-092",
+    "seccion": "Capítulo 1, Protocolo de inspección",
+    "pagina": "cap. 1",
+    "tema": "límite fotografía rgb profundidad ensayo estructural verificación campo inspección",
+    "fuente": "FHWA-HRT-13-092, capítulo 1 (criterios de medición)",
+    "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/ltpp/13092/001.cfm",
+    "texto": "La identificación visual preliminar permite ubicar deterioros superficiales en el tramo, pero la severidad métrica, la profundidad de baches o grietas y la evaluación estructural requieren medición directa y verificación en campo."
+  },
+  {
     "id": "MTC-410",
+    "documento": "MTC MCV-2014/2016",
+    "seccion": "§410.1",
+    "pagina": "p. 299",
     "tema": "reparación bache bacheo parchado superficial asfalto pavimento flexible profundidad",
     "fuente": "MTC, conservación vial, §410.1, p. 299",
     "url": "https://portal.mtc.gob.pe/transportes/caminos/normas_carreteras/MTC%20NORMAS/ARCH_PDF/MAN_9%20MCV-2014_2016.pdf",
     "texto": "El parchado superficial en calzada aplica cuando el deterioro del pavimento flexible afecta la capa de rodadura y las capas inferiores están en buenas condiciones. La sección remite los baches de mayor profundidad al parchado profundo de la sección 415."
   },
   {
+    "id": "MTC-415",
+    "documento": "MTC MCV-2014/2016",
+    "seccion": "§415",
+    "pagina": "cap. 4",
+    "tema": "parchado profundo base subbase bache profundo pavimento flexible reparación",
+    "fuente": "MTC, conservación vial, §415 (referenciado desde §410.1)",
+    "url": "https://portal.mtc.gob.pe/transportes/caminos/normas_carreteras/MTC%20NORMAS/ARCH_PDF/MAN_9%20MCV-2014_2016.pdf",
+    "texto": "Cuando el deterioro o bache compromete la base o capas inferiores del pavimento flexible más allá de la rodadura, la sección 410.1 remite al parchado profundo de la sección 415 previa verificación de espesores y soporte en campo."
+  },
+  {
     "id": "MTC-401",
-    "tema": "sellado grietas fisuras reparación flexible calzada",
+    "documento": "MTC MCV-2014/2016",
+    "seccion": "§§401 y 410.1",
+    "pagina": "pp. 287 y 299",
+    "tema": "sellado grietas fisuras reparación flexible calzada conservación",
     "fuente": "MTC, conservación vial, §§401 y 410.1, pp. 287 y 299",
     "url": "https://portal.mtc.gob.pe/transportes/caminos/normas_carreteras/MTC%20NORMAS/ARCH_PDF/MAN_9%20MCV-2014_2016.pdf",
     "texto": "Para pavimento flexible, el manual contempla sellado en calzada. La sección 410 menciona el sellado cuando el agrietamiento de baja severidad presenta fisuras sin interconexión. La selección de intervención requiere revisión en campo."
+  },
+  {
+    "id": "MTC-PRI",
+    "documento": "MTC MCV-2014/2016",
+    "seccion": "Criterios de conservación rutinaria y periódica",
+    "pagina": "marco general",
+    "tema": "prioridad priorización tramo tráfico flujo vehicular severidad nivel servicio mantenimiento",
+    "fuente": "MTC, conservación vial (criterios de inventario, condición y tráfico)",
+    "url": "https://portal.mtc.gob.pe/transportes/caminos/normas_carreteras/MTC%20NORMAS/ARCH_PDF/MAN_9%20MCV-2014_2016.pdf",
+    "texto": "La priorización preliminar de conservación vial combina la condición superficial del pavimento (severidad e historial de deterioros) con la importancia de la vía y la exposición del tránsito vehicular para programar inspecciones técnicas de campo."
+  },
+  {
+    "id": "MTC-SEG",
+    "documento": "MTC MCV-2014/2016",
+    "seccion": "Gestión y control técnico de conservación",
+    "pagina": "marco general",
+    "tema": "revisión humana aprobación ingeniero vial orden obra expediente preliminar",
+    "fuente": "MTC, conservación vial (control técnico y supervisión)",
+    "url": "https://portal.mtc.gob.pe/transportes/caminos/normas_carreteras/MTC%20NORMAS/ARCH_PDF/MAN_9%20MCV-2014_2016.pdf",
+    "texto": "Todo expediente preliminar de deterioro y prioridad constituye un insumo de apoyo y debe ser validado en sitio por un ingeniero o inspector responsable antes de aprobar intervenciones u órdenes de obra."
   }
 ]

@@ -1,0 +1,8 @@
+subgrupo,n,f1_macro,mae_ordinal,exactitud
+tipo_via=arterial,21,0.5889,0.0952,0.9048
+tipo_via=colectora,45,0.8489,0.1556,0.8444
+tipo_via=local,24,0.9315,0.0833,0.9167
+severidad_inspeccionada=0,25,0.5862,0.12,0.88
+severidad_inspeccionada=1,19,0.7822,0.1579,0.8421
+severidad_inspeccionada=2,21,0.6981,0.2381,0.7619
+severidad_inspeccionada=3,25,0.6667,0.0,1.0

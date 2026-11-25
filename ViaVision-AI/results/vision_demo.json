@@ -1,0 +1,155 @@
+{
+  "alcance": "Verificación de protocolo de evaluación visual sobre las 2 imágenes incluidas en data_sample (no constituye evaluación de campo independiente; tramo-ejemplo.jpg proviene del repositorio del modelo externo y fhwa-bache.jpg ilustra un fallo de clasificación/localización).",
+  "imagenes": 2,
+  "mAP50": 0.8653,
+  "ap50": {
+    "Bache": 0.8653
+  },
+  "recall_umbral_025": {
+    "Bache": 0.6667
+  },
+  "precision_umbral_025": {
+    "Bache": 1.0
+  },
+  "falsas_alarmas_por_recorrido": {
+    "demo-externo": 0,
+    "fhwa-control": 1
+  },
+  "comparativa_modelos": {
+    "yolo11n_umbral_025": {
+      "mAP50": 0.8653,
+      "ap50": {
+        "Bache": 0.8653
+      },
+      "recall": {
+        "Bache": 0.6667
+      },
+      "precision": {
+        "Bache": 1.0
+      },
+      "falsas_alarmas_por_recorrido": {
+        "demo-externo": 0,
+        "fhwa-control": 1
+      }
+    },
+    "yolo11n_umbral_050": {
+      "mAP50": 0.8653,
+      "ap50": {
+        "Bache": 0.8653
+      },
+      "recall": {
+        "Bache": 0.3333
+      },
+      "precision": {
+        "Bache": 1.0
+      },
+      "falsas_alarmas_por_recorrido": {
+        "demo-externo": 0,
+        "fhwa-control": 0
+      }
+    },
+    "baseline_contraste_local": {
+      "mAP50": 0.0,
+      "ap50": {
+        "Bache": 0.0
+      },
+      "recall": {
+        "Bache": 0.0
+      },
+      "precision": {
+        "Bache": 0.0
+      },
+      "falsas_alarmas_por_recorrido": {
+        "demo-externo": 1,
+        "fhwa-control": 1
+      }
+    }
+  },
+  "detalle_por_imagen": [
+    {
+      "imagen": "tramo-ejemplo.jpg",
+      "calle": "Muestra externa sample4 (Arcioni/Aryan)",
+      "recorrido": "demo-externo",
+      "gt_count": 2,
+      "predicciones_025": [
+        {
+          "clase": "Bache",
+          "caja": [
+            162,
+            139,
+            281,
+            234
+          ],
+          "confianza": 0.6181411147117615
+        },
+        {
+          "clase": "Bache",
+          "caja": [
+            341,
+            63,
+            421,
+            97
+          ],
+          "confianza": 0.48144668340682983
+        }
+      ],
+      "iou_por_gt": [
+        {
+          "gt_clase": "Bache",
+          "gt_caja": [
+            162,
+            139,
+            281,
+            234
+          ],
+          "mejor_iou_misma_clase": 1.0,
+          "mejor_iou_cualquier_clase": 1.0
+        },
+        {
+          "gt_clase": "Bache",
+          "gt_caja": [
+            341,
+            63,
+            421,
+            97
+          ],
+          "mejor_iou_misma_clase": 1.0,
+          "mejor_iou_cualquier_clase": 1.0
+        }
+      ],
+      "nota_caso": "Dos baches visibles con agua superficial; origen compartido con el repositorio del modelo."
+    },
+    {
+      "imagen": "fhwa-bache.jpg",
+      "calle": "FHWA-HRT-13-092 Fig. 28",
+      "recorrido": "fhwa-control",
+      "gt_count": 1,
+      "predicciones_025": [
+        {
+          "clase": "Grieta",
+          "caja": [
+            52,
+            8,
+            302,
+            189
+          ],
+          "confianza": 0.2932160198688507
+        }
+      ],
+      "iou_por_gt": [
+        {
+          "gt_clase": "Bache",
+          "gt_caja": [
+            102,
+            60,
+            178,
+            86
+          ],
+          "mejor_iou_misma_clase": 0.0,
+          "mejor_iou_cualquier_clase": 0.0437
+        }
+      ],
+      "nota_caso": "Caso de error documentado: bache pequeño en toma inclinada clasificado erróneamente como Grieta (29%) con caja sobredimensionada."
+    }
+  ]
+}

@@ -1,70 +1,98 @@
 # VíaVision AI
 
-Prototipo de inspección vial del Grupo 03, Sistemas Inteligentes, UNT. La interfaz enlaza detección de daños, prioridad estimada, evidencia documental y aprobación humana en un solo expediente.
+Prototipo de inspección vial del **Grupo 03** (Sistemas Inteligentes — VI ciclo, Universidad Nacional de Trujillo, 2026-II). Integra detección visual de deterioros, estimación de prioridad tabular, recuperación documental normativa y aprobación humana mediante LangGraph en un expediente JSON validado con Pydantic.
+
+- **Repositorio oficial:** https://github.com/k3vind0/ViaVision-AI
+- **Integrantes y roles:**
+  - **Kevin Alexis Alva Neciosup** — Líder Técnico / Pipeline ML y Visión
+  - **Aguilar Meza Yolver Yonel** — Arquitectura RAG y Agente LangGraph
+  - **Chacon Garcia Anthony Alexander** — Interfaz Streamlit, Pruebas y Documentación
+
+## Estructura del repositorio
+
+```text
+ViaVision-AI/
+├── app.py                         # Interfaz Streamlit principal
+├── configs/settings.yaml          # Parámetros centralizados (visión, ML, RAG, logging)
+├── data_sample/                   # Corpus normativo (13 fichas), 2 fotos y CSV sintético
+├── docs/                          # Documentación técnica, capturas y entregables académicos
+├── models/                        # road_damage.onnx (YOLO11n) y demo.joblib
+├── notebooks/Experimentacion.ipynb# Cuaderno reproducible ejecutado con salidas
+├── results/                       # Métricas JSON/CSV, figuras PNG y expedientes
+├── scripts/                       # Entrenamiento, evaluación visual/RAG y capturas
+├── src/
+│   ├── config.py                  # Carga YAML y logging estructurado (logs/viavision.log)
+│   ├── schemas.py                 # Esquemas Pydantic v2 y contrato ExpedientePreliminar
+│   ├── data/                      # Generador coherente por tramo y validación tabular
+│   ├── ml/                        # Baseline por regla, candidatos, entrenamiento e inferencia
+│   ├── vision/                    # Detector YOLO11n ONNX y evaluador de cajas
+│   ├── rag/                       # Chunking, índice híbrido (TF-IDF + SVD) y asistente
+│   ├── agents/                    # Grafo LangGraph tipado con interrupción humana
+│   └── ui/                        # Componentes modulares de Streamlit
+└── tests/                         # Suite automatizada pytest (ML, Visión, RAG, Grafo, UI)
+```
 
 ## Ejecutar la demo local
 
-Requiere Python 3.12. Abrir una terminal en esta carpeta.
+Compatible con **Python 3.12 – 3.14** (Windows/Linux/macOS). Abrir una terminal en la carpeta `ViaVision-AI`:
 
-```sh
+```powershell
 python -m venv .venv
-# Windows PowerShell: .venv\Scripts\Activate.ps1
-# macOS/Linux: source .venv/bin/activate
+.\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-Abrir http://localhost:8501. En **Demostración**, usar la foto incluida y pulsar **Analizar tramo**. Cambiar el tráfico de 500 a 9800 vehículos/día y comparar el puntaje. Consultar «¿Cuándo aplica el parchado superficial en pavimento flexible?», abrir la fuente y la traza, aprobar la revisión y descargar el expediente JSON.
+Abrir `http://localhost:8501`. En **Demostración**, usar la foto incluida y pulsar **Analizar tramo**. Cambiar el tráfico de `500` a `9800` vehículos/día para observar la variación de prioridad, probabilidades e incertidumbre. Consultar `¿Cuándo aplica el parchado superficial en pavimento flexible?` o usar el chat contextual (`¿En qué sección se sustenta la prioridad?`), revisar las fuentes `[ID]` y la traza con latencias, aprobar la revisión y descargar el expediente JSON.
 
-El modo local incluye recuperación con TF-IDF y citas. Para generación con LLM, copiar `.env.example` a `.env` y configurar una clave de OpenAI con acceso al modelo configurado. La clave se queda en el equipo y requiere conexión para el llamado. La app vuelve a la respuesta local si falla la API o la respuesta omite los identificadores de fuente. El LLM recibe el texto de la consulta y las fichas, sin la imagen ni las coordenadas.
+El modo local ejecuta recuperación híbrida offline (TF-IDF + índice vectorial denso SVD) con verificación de citas. Para activar redacción estructurada (Pydantic) con LLM, copiar `.env.example` a `.env` y configurar `OPENAI_API_KEY`. Si falla la API o la respuesta omite citas válidas, el sistema retorna automáticamente al respaldo local.
 
-## Reproducir métricas
+## Reproducir métricas, pruebas y capturas
 
-```sh
+```powershell
+# 1. Instalar herramientas de prueba y notebook
+python -m pip install -r requirements-dev.txt
+
+# 2. Entrenar baseline y candidatos ML (genera demo.joblib, tablas, split y figuras PNG)
 python -m scripts.train_ml
+
+# 3. Verificar protocolo de evaluación visual sobre muestras incluidas
+python -m scripts.evaluate_vision data_sample/vision_demo_manifest.json --output results/vision_demo.json --figure results/fig_vision_fhwa_analisis.png
+
+# 4. Evaluar flujo LangGraph y banco RAG de 24 consultas (Sin-RAG vs Con-RAG)
 python -m scripts.evaluate_demo
+
+# 5. Ejecutar suite automatizada de pruebas
+python -m pytest -v
 ```
 
-El primer comando genera 360 observaciones sintéticas de 120 tramos, entrena el baseline y dos candidatos, y guarda las métricas en `results/ml_demo.json`. El segundo ejecuta LangGraph, el detector ONNX y recuperación local, y guarda resultados y expediente en `results/demo.json` y `results/expediente_demo.json`.
+Nota sobre archivos de resultados: `results/demo_antes_filtro.json` se conserva como registro histórico previo a la ampliación del filtro de dominio y guardia anti-inyección; `results/demo.json` contiene la evaluación vigente de 24 consultas y 11 comprobaciones funcionales.
 
 Para entrenar con registros reales autorizados:
 
-```sh
+```powershell
 python -m scripts.train_ml --csv data_private/tramos.csv
 ```
 
-El CSV debe incluir los encabezados del CSV de ejemplo, etiquetas de inspección en `prioridad_validada` y un identificador de agrupación. Usa `--grupo distrito` si el diseño experimental se basa en distrito y el archivo contiene esa columna. Usa el modo **Piloto con datos validados** después de generar `models/validado.joblib`. El artefacto del modo piloto depende de la calidad y procedencia del CSV.
+El CSV debe incluir las columnas de `data_sample/tramos_sinteticos.csv`, etiquetas en `prioridad_validada` (`baja`, `media`, `alta`) y un identificador de agrupación (`--grupo id_tramo` o `distrito`).
 
-## Arquitectura
+## Arquitectura integrada
 
 ```mermaid
 flowchart TD
-    A["Formulario Streamlit"] --> V["YOLO ONNX"]
-    V --> M["Predicción de prioridad"]
-    M --> R["Recuperar fuentes y responder"]
-    R --> H{"Revisión humana"}
-    H -->|Aprobación| E["Expediente JSON"]
-    H -->|Rechazo| F["Fin"]
+    A["Formulario Streamlit"] --> M0["verificar_metadatos"]
+    M0 --> M["calcular_prioridad (ML + incertidumbre)"]
+    M --> V["detectar_danos (YOLO11n ONNX)"]
+    V --> R["recuperar_normativa + answer (RAG híbrido + contexto tramo)"]
+    R --> U["evaluar_incertidumbre"]
+    U --> H{"revision_humana (interrupt)"}
+    H -->|Aprobación| E["registrar_inspeccion_preliminar (Expediente JSON Pydantic)"]
+    H -->|Rechazo / Error| F["Fin sin orden de obra"]
 ```
-
-La severidad del formulario se registra por inspección. Las cajas y confidencias del detector se adjuntan al expediente como evidencia visual. El puntaje es 50 × la esperanza de la escala ordinal 0, 1 y 2. El orden de los nodos y las decisiones quedan en la traza. La aprobación reanuda el mismo análisis con LangGraph.
 
 ## Datos, fuentes y alcance
 
-- **Visión.** YOLO11n externo de Rishabh Aryan, ajuste publicado por el autor sobre el dataset de Lorenzo Arcioni. Se incorporó el ONNX del commit `31406345c784f2e66216f42a221627da2e26e7c8`. La imagen de demostración corresponde a `docs/samples/sample4.jpg` de la misma revisión. Puede compartir origen con el entrenamiento. Licencias y fuente en `docs/Fuentes.md`.
-- **Prioridad.** Los datos de demostración provienen del generador incluido. Las métricas de ese conjunto describen la recuperación de patrones sintéticos. Para una validación vial se requiere un conjunto de registros etiquetados por inspección o un objetivo alternativo autorizado.
-- **RAG.** Seis fichas curadas de FHWA y MTC, con paráfrasis identificadas por capítulo, sección y URL. La evaluación local mide recuperación. Verificar fidelidad de generación en pruebas con una clave propia.
-- **Evaluación visual.** La demostración ejecuta inferencia real. Para obtener mAP y recall de campo se requiere un test anotado y separado por calle y recorrido.
-- **Privacidad.** Utilizar fotos autorizadas y evitar rostros y matrículas. La identificación de un daño visible y el expediente son elementos preliminares de inspección.
-
-## Entregables
-
-La carpeta `docs/` reúne informe editable, presentación, póster, manuales y guion. Los resultados de ejecución están en `results/`. Completar la bitácora con la participación que realmente tenga cada integrante.
-
-### Evaluar el detector en campo
-
-`python -m scripts.evaluate_vision data_private/vision_test.json` calcula AP@50, recall al umbral de uso y falsas alarmas por recorrido. El archivo contiene una lista de objetos con los campos `imagen` (ruta relativa al manifiesto), `calle`, `recorrido` y `cajas` (lista de objetos `{"clase":"Bache","caja":[x1,y1,x2,y2]}`). Para el modelo incluido, las clases evaluables son Bache y Grieta. Conservar calles y recorridos de prueba fuera de cualquier ajuste y auditar duplicados antes de medir. Registrar las condiciones de cámara, humedad y sombra.
-
-### Alcance territorial
-
-El ámbito propuesto es la provincia de Trujillo, La Libertad. Selecciona el modo y registra el distrito, la vía o sector y, si las conoces, ambas coordenadas. La provincia y el departamento quedan fijos en el formulario y se guardan en el bloque 'ubicacion' del expediente. Las ubicaciones de la demo se exportan como simuladas. Para un piloto de campo, registra una foto y una ficha del mismo tramo.
+- **Visión:** YOLO11n externo de Rishabh Aryan sobre el dataset de Lorenzo Arcioni (`commit 31406345c784f2e66216f42a221627da2e26e7c8`). `tramo-ejemplo.jpg` proviene de `docs/samples/sample4.jpg` de ese repositorio; `fhwa-bache.jpg` proviene de FHWA-HRT-13-092 (Fig. 28) e ilustra un error puntual (`Bache` clasificado como `Grieta` al 29 %). Para mAP de campo se requiere un conjunto anotado independiente por calle y recorrido.
+- **Prioridad:** 360 filas sintéticas coherentes de 120 tramos (`tipo_via` constante y progresión anual por tramo). Las métricas reflejan el generador sintético mientras no se disponga de registros municipales validados.
+- **RAG:** 13 fichas curadas y trazables de FHWA-HRT-13-092 y Manual de Carreteras MTC (conservación vial), con URL oficial, chunking, índice híbrido y evaluación sobre 24 consultas (12 contestables, 6 sin respaldo y 6 adversariales).
+- **Alcance territorial:** Provincia de Trujillo, La Libertad. Las ubicaciones de demostración se exportan marcadas como `simulado`.
